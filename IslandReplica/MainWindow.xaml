@@ -1,0 +1,50 @@
+<Window x:Class="IslandReplica.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Island Replica" Width="390" Height="78"
+        WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True"
+        Background="Transparent" Topmost="True" ShowInTaskbar="False"
+        Loaded="Window_Loaded">
+    <Border x:Name="Shell" Background="#F10D0D11" CornerRadius="28"
+            BorderBrush="#303A3A44" BorderThickness="1" Padding="16"
+            MouseLeftButtonDown="Shell_MouseLeftButtonDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Border Width="34" Height="34" CornerRadius="17" Background="#FF25252D" VerticalAlignment="Center">
+                    <TextBlock Text="◈" Foreground="#FFE8E8F0" FontSize="19" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="11,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="ISLAND" Foreground="White" FontSize="11" FontWeight="Bold" CharacterSpacing="180"/>
+                    <TextBlock x:Name="ClockText" Text="00:00" Foreground="#FFB8B8C2" FontSize="11"/>
+                </StackPanel>
+                <Button x:Name="ExpandButton" Grid.Column="2" Content="⌄" Width="34" Height="34"
+                        Background="#FF24242B" Foreground="White" BorderThickness="0"
+                        FontSize="18" Click="ExpandButton_Click"/>
+            </Grid>
+            <StackPanel x:Name="Details" Grid.Row="1" Visibility="Collapsed" Margin="0,14,0,2">
+                <Border Height="1" Background="#303A3A44" Margin="0,0,0,12"/>
+                <TextBlock Text="QUICK PANEL" Foreground="#FF9B9BA5" FontSize="10" FontWeight="Bold" CharacterSpacing="120"/>
+                <TextBlock Text="Your desktop, at a glance." Foreground="White" FontSize="16" Margin="0,5,0,12"/>
+                <UniformGrid Columns="2">
+                    <Border Background="#FF202027" CornerRadius="13" Padding="12" Margin="0,0,5,0">
+                        <StackPanel><TextBlock Text="TIME" Foreground="#FF9B9BA5" FontSize="9"/><TextBlock x:Name="LongTimeText" Text="00:00:00" Foreground="White" FontSize="18"/></StackPanel>
+                    </Border>
+                    <Border Background="#FF202027" CornerRadius="13" Padding="12" Margin="5,0,0,0">
+                        <StackPanel><TextBlock Text="DATE" Foreground="#FF9B9BA5" FontSize="9"/><TextBlock x:Name="DateText" Text="Wednesday" Foreground="White" FontSize="14"/></StackPanel>
+                    </Border>
+                </UniformGrid>
+                <TextBlock Text="This is the first build. Media integration, notifications, widgets and customization are planned for subsequent builds."
+                           TextWrapping="Wrap" Foreground="#FF9B9BA5" FontSize="10" Margin="2,12,2,0"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
